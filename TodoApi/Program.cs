@@ -21,6 +21,11 @@ if (app.Environment.IsDevelopment())
 
 app.MapFallback(() => Results.Redirect("/swagger"));
 
+app.MapGet("/hello", () =>
+{
+    return "hello";
+});
+
 app.MapGet("/todos", async (TodoDbContext db) =>
 {
     return await db.Todos.ToListAsync();
