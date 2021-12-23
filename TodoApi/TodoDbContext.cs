@@ -3,7 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 public class TodoDbContext : DbContext
 {
-    public TodoDbContext(DbContextOptions options) : base(options) { }
+    public TodoDbContext(DbContextOptions options) : base(options) {
+        Database.EnsureCreated();
+     }
 
     public DbSet<Todo> Todos => Set<Todo>();
 }
