@@ -1,7 +1,8 @@
 # https://hub.docker.com/_/microsoft-dotnet-sdk/
 FROM mcr.microsoft.com/dotnet/sdk:6.0-bullseye-slim
 
-RUN useradd -s /bin/bash -m vscode
-RUN groupadd docker && usermod -aG docker vscode
+RUN useradd -s /bin/bash -m vscode \
+ && groupadd docker \
+ && usermod -aG docker vscode
 
 USER vscode
